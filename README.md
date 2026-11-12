@@ -12,7 +12,7 @@ In **Settings → Pages → Build and deployment**, set **Source** to **GitHub A
 
 ## Pages and discovery
 
-- `index.html` includes crawlable HTML links to all 9 project pages. Search filtering is progressive enhancement and does not remove links for visitors without JavaScript.
+- `index.html` includes crawlable HTML links to all 10 project pages. Search filtering is progressive enhancement and does not remove links for visitors without JavaScript.
 - `projects/<repo-name>/index.html` is a distinct indexable landing page with its own canonical URL, descriptive title, social metadata, and structured data. Some pages link to published documentation.
 - `sitemap.xml` lists the homepage and all project landing pages, with verified per-project `lastmod` dates where supplied.
 - `robots.txt` advertises this site sitemap.
