@@ -59,6 +59,7 @@ PROJECT_ICON_PATHS = {
     "ai-flywheel-cli": "M4 17 10 11 4 5 M12 19h8",
     "ai-flywheel-cli-python": "M8 8 4 12l4 4 M16 8l4 4-4 4 M14 4l-4 16",
     "ai-flywheel-framework-testing": "M9 3h6 M10 3v7l-5 8a2 2 0 0 0 1.7 3h10.6a2 2 0 0 0 1.7-3l-5-8V3 M8 15h8",
+    "RecordSift": "M4 4h16v16H4z M8 8h8 M8 12h8 M8 16h5",
     "nuget-publication-cooldown-poc": "M12 2 3 7v10l9 5 9-5V7l-9-5Z M3 7l9 5 9-5 M12 12v10 M8 16h3"
 }
 def project_icon(slug):
