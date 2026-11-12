@@ -167,6 +167,77 @@
     "socialSource": "https://raw.githubusercontent.com/infoconex/isolated-dotnet-sdk/main/assets/images/isolated-dotnet-sdk-banner.png"
   },
   {
+    "name": "RecordSift",
+    "category": ".NET / Library",
+    "description": "Windows/.NET Framework 4.8 library for importing CSV and XLSX files, mapping data to typed records, validating rows, and producing structured diagnostics and reports.",
+    "url": "https://github.com/infoconex/RecordSift",
+    "order": 25,
+    "website": "https://github.com/infoconex/RecordSift/blob/main/docs/usage/getting-started.md",
+    "overview": "Import data. Validate each record. Explain the outcome.",
+    "highlights": [
+      "Import CSV and XLSX into typed C# records with explicit, culture-aware mapping",
+      "Validate required values, ranges, formats, duplicates, and custom rules",
+      "Separate accepted and rejected rows, with structured diagnostics and optional reports"
+    ],
+    "audience": "Maintainers of Windows/.NET Framework 4.8 applications that import business data from CSV or Excel.",
+    "caseStudy": {
+      "problem": "Reading a CSV file or Excel worksheet is only one part of a reliable data import. Applications must also map columns, convert values, validate business rules, and explain which rows failed.",
+      "solution": "Provide a reusable import-and-validation pipeline for CSV and XLSX that returns typed accepted records, rejected rows, and deterministic diagnostics without requiring Excel or a runtime service.",
+      "decisions": [
+        "Keep record validation and mapping explicit and owned by the consuming application.",
+        "Make accepted records, rejected rows, and diagnostic locations inspectable.",
+        "Use existing CSV and Excel readers while defining resource limits and input safety boundaries."
+      ],
+      "status": "Version 0.1.0 is published on NuGet.org for Windows/.NET Framework 4.8. Work on a future 0.2 release is ongoing; consult the source repository for current plans.",
+      "problemDetails": [
+        "A parser can read cells, but it cannot decide whether a customer row satisfies an application's domain rules or explain consistently why the row was rejected.",
+        "Repeatedly implementing mapping, validation, and error reporting for each input format makes integrations harder to test and maintain."
+      ],
+      "solutionDetails": [
+        "RecordSift unifies column mapping, culture-aware conversion, validation, and result reporting across CSV and XLSX imports.",
+        "Callers receive a typed import result with accepted records, status, summary, and location-aware diagnostics; optional JSON, text, and diagnostic CSV reports describe the outcome."
+      ],
+      "audienceDetails": [
+        "The published 0.1.0 package targets Windows and .NET Framework 4.8, using the synchronous import model described in its consumer guide.",
+        "It suits applications needing more than file parsing, but is not a streaming engine or a cross-platform modern .NET library."
+      ],
+      "workflowDetails": [
+        [
+          "Define the expected columns and explicit source-to-property mappings for your C# record type.",
+          "Import from CSV or XLSX with caller-selected resource budgets and import options."
+        ],
+        [
+          "Apply required-value, range, length, duplicate, pattern, and custom-record validation rules.",
+          "Validation decisions remain with the consuming application and are reported consistently."
+        ],
+        [
+          "Inspect accepted records, rejected rows, and their row- and field-level diagnostics.",
+          "Generate JSON, readable text, or machine-interchange diagnostic CSV when needed; spreadsheet formula safety requires separate handling."
+        ]
+      ],
+      "decisionDetails": [
+        [
+          "Applications define their own mappings and validation rules rather than relying on hidden conventions.",
+          "This supports controlled, explainable import behavior."
+        ],
+        [
+          "Structured result statuses and stable diagnostic codes make failures actionable.",
+          "Optional reports do not automatically persist accepted records."
+        ],
+        [
+          "The library wraps established CSV and XLSX readers instead of replacing parsing engines.",
+          "Caller budgets and XLSX safety checks reduce some risks but do not guarantee fixed process memory or CPU usage."
+        ]
+      ],
+      "statusDetails": [
+        "Stable 0.1.0 is available publicly on NuGet.org and is MIT licensed.",
+        "The published package is Windows/net48 only; verify current compatibility, installation guidance, and release notes in the repository."
+      ]
+    },
+    "lastmod": "2026-11-11",
+    "seoDescription": "Import CSV and XLSX files into typed .NET Framework 4.8 records with configurable validation, row-level diagnostics, and optional reports."
+  },
+  {
     "name": "Copy GitHub Repo",
     "category": "Developer Tools",
     "description": "PowerShell module for copying or migrating GitHub repositories. Choose a clean Snapshot or history-preserving FullHistory mode, with preview plans and safety checks.",
