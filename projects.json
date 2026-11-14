@@ -238,6 +238,86 @@
     "seoDescription": "Import CSV and XLSX files into typed .NET Framework 4.8 records with configurable validation, row-level diagnostics, and optional reports."
   },
   {
+    "name": ".NET Binary Tools",
+    "category": ".NET / Tooling",
+    "description": "Planned cross-platform .NET CLI for inspecting DLL and EXE metadata to identify declared target frameworks without executing assemblies.",
+    "url": "https://github.com/infoconex/dotnet-binary-tools",
+    "order": 27,
+    "overview": "A proposed dotnet framework command to inspect compiled .NET assemblies and report their declared target frameworks without needing source code or executing the binary. Currently a requirements and CLI-design project, not a released tool.",
+    "highlights": [
+      "Proposed inspection of TargetFrameworkAttribute metadata in managed DLLs and EXEs",
+      "Planned recursive directory scans and machine-readable JSON output",
+      "Explicit distinction between declared target, unknown metadata, and runtime compatibility"
+    ],
+    "audience": "Developers assessing compiled .NET binaries when source projects or build records are unavailable.",
+    "caseStudy": {
+      "problem": "Compiled assemblies often lack accessible source code or build records, making it difficult to identify which .NET framework they declare as their target.",
+      "solution": "Design a read-only, cross-platform .NET CLI that inspects managed assembly metadata and reports the declared target framework without loading or executing the assembly.",
+      "decisions": [
+        "Prefer explicit TargetFrameworkAttribute metadata over guesses from CLR versions.",
+        "Report unknown or unreadable targets rather than inventing a framework.",
+        "Separate metadata inspection from CLI parsing and directory traversal."
+      ],
+      "status": "Requirements and proposed command contract only. The CLI has not yet been implemented or released.",
+      "problemDetails": [
+        "An assembly's declared target is distinct from its runtime, SDK version, and actual compatibility.",
+        "Directory inventories need consistent results even when some binaries are native, malformed, or unreadable."
+      ],
+      "solutionDetails": [
+        "The proposed dotnet framework inspect and scan commands would report declared target framework monikers and readable names.",
+        "The planned implementation uses System.Reflection.Metadata and PortableExecutable APIs to inspect binaries without executing their code."
+      ],
+      "audienceDetails": [
+        "Intended for developers auditing legacy applications, planning modernization, or examining build artifacts.",
+        "All documented CLI commands and sample outputs are proposals, not currently available functionality."
+      ],
+      "workflowDetails": [
+        [
+          "Inspect a managed DLL or EXE.",
+          "The proposed inspect command would read its declared TargetFrameworkAttribute without executing code."
+        ],
+        [
+          "Scan a directory of binaries.",
+          "The proposed scan command would inventory candidates and continue past invalid files."
+        ],
+        [
+          "Use structured results.",
+          "Planned console and JSON outputs would distinguish detected, unknown, and unreadable cases."
+        ]
+      ],
+      "decisionDetails": [
+        [
+          "Trust explicit metadata, not guesses.",
+          "CLR metadata versions do not reliably identify a framework target."
+        ],
+        [
+          "Never execute inspected assemblies.",
+          "The design favors read-only metadata inspection instead of dynamic loading."
+        ],
+        [
+          "Preserve uncertainty.",
+          "A missing attribute or native executable must not be mislabeled as a supported target."
+        ]
+      ],
+      "statusDetails": [
+        "The repository currently contains a requirements baseline and proposed CLI contract, not executable functionality.",
+        "There is no released binary, NuGet package, or functional CLI; see the repository for progress."
+      ]
+    },
+    "related": [
+      {
+        "slug": "isolated-dotnet-sdk",
+        "relationship": "Related .NET developer tooling"
+      },
+      {
+        "slug": "RecordSift",
+        "relationship": "Example of a .NET Framework library"
+      }
+    ],
+    "lastmod": "2026-11-13",
+    "seoDescription": "Planned .NET CLI for read-only inspection of DLL and EXE target-framework metadata, with directory scans and JSON reporting."
+  },
+  {
     "name": "Copy GitHub Repo",
     "category": "Developer Tools",
     "description": "PowerShell module for copying or migrating GitHub repositories. Choose a clean Snapshot or history-preserving FullHistory mode, with preview plans and safety checks.",
