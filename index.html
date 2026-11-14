@@ -80,7 +80,7 @@ const empty = document.getElementById('no-results');
 const chips = [...document.querySelectorAll('.chip')];
 const groups = {
   ai: ['ai-flywheel-spec','ai-flywheel-framework','ai-flywheel-cli','ai-flywheel-cli-python','ai-flywheel-framework-testing'],
-  dotnet: ['isolated-dotnet-sdk','nuget-publication-cooldown-poc'],
+  dotnet: ['isolated-dotnet-sdk','RecordSift','nuget-publication-cooldown-poc'],
   tools: ['copy-github-repo','isolated-dotnet-sdk','ai-flywheel-cli','ai-flywheel-cli-python'],
   writing: ['coding-blog']
 };
@@ -97,12 +97,23 @@ function filter(){
  count.textContent=visible+' '+(visible===1?'project':'projects');
  empty.hidden=visible>0;
 }
+function selectCategory(category){
+ selected=category;
+ chips.forEach(chip=>{
+  const active=chip.dataset.filter===category;
+  chip.classList.toggle('selected',active);
+  chip.setAttribute('aria-pressed',String(active));
+ });
+}
 chips.forEach(chip=>chip.addEventListener('click',()=>{
- selected=chip.dataset.filter;
- chips.forEach(c=>{const active=c===chip;c.classList.toggle('selected',active);c.setAttribute('aria-pressed',String(active));});
+ selectCategory(chip.dataset.filter);
+ search.value='';
  filter();
 }));
-search.addEventListener('input',filter);
+search.addEventListener('input',()=>{
+ selectCategory('all');
+ filter();
+});
 document.getElementById('year').textContent=new Date().getFullYear();
 filter();
 })();
