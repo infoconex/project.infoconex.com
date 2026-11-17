@@ -41,6 +41,13 @@
 @media(max-width:800px){.hero-demo .hero-feature{grid-template-columns:minmax(0,1fr) 210px;gap:25px}.hero-portrait{width:210px}}
 @media(max-width:620px){.hero-demo .hero-feature{grid-template-columns:minmax(0,1fr);gap:32px;padding:7px 0 26px}.hero-portrait{justify-self:center;width:205px}.hero-demo .hero-feature h1{max-width:100%}}
 @media(prefers-reduced-motion:reduce){.hero-portrait-frame{transition:none}}
+
+/* Keep the three external profile links readable on narrow screens. */
+@media(max-width:680px){
+  .hero-header{flex-wrap:wrap;row-gap:12px}
+  .hero-header nav{flex-wrap:wrap;gap:12px 18px}
+  .hero-header nav a{white-space:nowrap}
+}
 </style><script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebSite", "name": "infoconex", "url": "https://projects.infoconex.com/"}, {"@type": "CollectionPage", "name": "infoconex open-source projects", "url": "https://projects.infoconex.com/", "mainEntity": {"@type": "ItemList", "itemListElement": [{"@type": "ListItem", "position": 1, "url": "https://projects.infoconex.com/projects/coding-blog/", "name": "Coding Blog"}, {"@type": "ListItem", "position": 2, "url": "https://projects.infoconex.com/projects/isolated-dotnet-sdk/", "name": "Isolated .NET SDK"}, {"@type": "ListItem", "position": 3, "url": "https://projects.infoconex.com/projects/copy-github-repo/", "name": "Copy GitHub Repo"}, {"@type": "ListItem", "position": 4, "url": "https://projects.infoconex.com/projects/ai-flywheel-spec/", "name": "AI Flywheel Specification"}, {"@type": "ListItem", "position": 5, "url": "https://projects.infoconex.com/projects/ai-flywheel-framework/", "name": "AI Flywheel Framework"}, {"@type": "ListItem", "position": 6, "url": "https://projects.infoconex.com/projects/ai-flywheel-cli/", "name": "AI Flywheel CLI"}, {"@type": "ListItem", "position": 7, "url": "https://projects.infoconex.com/projects/ai-flywheel-cli-python/", "name": "AI Flywheel CLI Python"}, {"@type": "ListItem", "position": 8, "url": "https://projects.infoconex.com/projects/ai-flywheel-framework-testing/", "name": "AI Flywheel Framework Testing"}, {"@type": "ListItem", "position": 9, "url": "https://projects.infoconex.com/projects/nuget-publication-cooldown-poc/", "name": "NuGet Publication Cooldown POC"}]}}]}</script><script type="text/javascript">
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -59,7 +66,7 @@
 </head>
 <body>
   <main>
-    <section class="hero hero-demo"><div class="container hero-inner"><div class="hero-header"><a class="brand" href="/" aria-label="infoconex home"><span class="brand-mark">i<span>.</span></span> infoconex</a><nav aria-label="Main navigation"><a href="#projects">Projects</a><a href="https://github.com/infoconex" target="_blank" rel="noopener noreferrer">GitHub ↗</a></nav></div>
+    <section class="hero hero-demo"><div class="container hero-inner"><div class="hero-header"><a class="brand" href="/" aria-label="infoconex home"><span class="brand-mark">i<span>.</span></span> infoconex</a><nav aria-label="Main navigation"><a href="https://jim-scott.infoconex.com/" target="_blank" rel="noopener noreferrer">Personal site ↗</a><a href="https://www.linkedin.com/in/jim-scott-a57782177/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="https://github.com/infoconex" target="_blank" rel="noopener noreferrer">GitHub ↗</a></nav></div>
       <div class="hero-feature">
         <div class="hero-copy">
           <p class="eyebrow">SOFTWARE · OPEN SOURCE · EXPERIMENTS</p>
