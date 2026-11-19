@@ -122,6 +122,7 @@ for url in paths:
     parser = Extract()
     parser.feed(file.read_text())
     assert file.read_text().count('https://www.clarity.ms/tag/') == 1, f"Clarity must appear exactly once: {file}"
+    assert file.read_text().count('"clarity", "script", "zg0rnuthmr"') == 1, f"Clarity project ID must match: {file}"
     assert file.read_text().count('googletagmanager.com/gtag/js?id=G-NGRKHVW368') == 1, f"GA4 loader must appear exactly once: {file}"
     assert file.read_text().count("gtag('config', 'G-NGRKHVW368')") == 1, f"GA4 configuration must appear exactly once: {file}"
     assert parser.canonical == [BASE + url], f"Canonical mismatch: {file}"
